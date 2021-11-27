@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding:0;
+            margin:0;
+        }
+        body{
+            background-color:whitesmoke;
+            text-align:center;
+        }
+        .nav{
+            height:60px;
+            background-color: #A8DADC;
+            display:flex;
+            align-items: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        .logo{
+            margin-left:10px;
+            color:black;
+        }
+        .navlinks{
+            color:white;
+            display:flex;
+            margin-left: auto;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        li{
+            font-weight:bolder;
+            list-style: none;
+            padding:10px;
+            padding-right: 10px;
+        }
+        h1{
+            text-align:center;
+            color:#E63946;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-top:20px;
+        }
+        h2{
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h2 class="logo">BBC-Science</h2>
+        <ul class="navlinks">
+        <a href="wsd.html"><u>
+            <li>
+                Home
+            </li>
+        </a></u>
+        <a href="quiz.html"><u>
+            <li>
+                Quiz
+            </li>
+        </a></u>
+        <a href="people.html"><u>
+            <li>
+                Scientists
+            </li>
+        </a></u>
+        <a href="contact.html"><u>
+            <li>
+                Contact
+            </li>
+        </a></u>
+        </ul>
+    </div>
+    <h1>Quiz</h1>
+    <h3>1)The Largest Cell is _______</h3>
+    <label for="">Nerve Cell</label>
+    <input type="radio" name="cell" value="NerveCell">
+    <label for="">Otrich Egg</label>
+    <input type="radio" name="cell" value="OstrichEgg"><br><br>
+
+    <h3>2)How many Planets are there in the Solar System?</h3>
+    <label for="">10</label>
+    <input type="radio" name="planet" value="10">
+    <label for="">8</label>
+    <input type="radio" name="planet" value="8"><br><br>
+
+    <h3>3)365 Days make one ________</h3>
+    <label for="">Revolution</label>
+    <input type="radio" name="days" value="Revolution">
+    <label for="">Rotation</label>
+    <input type="radio" name="days" value="Rotation"><br><br>
+
+    <h3>4)What is the respiratory organs used by Fishes?</h3>
+    <label for="">Lungs</label>
+    <input type="radio" name="fishes" value="Lungs">
+    <label for="">Gills</label>
+    <input type="radio" name="fishes" value="Gills"><br><br>
+
+    <h3>5)What makes plants green?</h3>
+    <label for="">Chlorophyll</label>
+    <input type="radio" name="plants" value="Chlorophyll">
+    <label for="">Nitrocellulose</label>
+    <input type="radio" name="plants" value="Nitrocellulose"><br><br>
+
+    <button onclick="reveal()">Reveal Answer</button>
+     
+    <template>
+        <h1>Answers</h1>
+        <h2>1)Ostrich Egg<br>
+        2)8<br>
+        3)Revolution<br>
+        4)Gills<br>
+        5)Chlorophyll</h2>
+    </template>
+
+    <h1>Your score:</h1>
+    <h1 id="score"></h1>
+</body>
+<script>
+var score=0;
+function reveal(){
+    var cell=document.querySelector('input[name="cell"]:checked').value;
+    if (cell=="OstrichEgg"){
+        score=score+1;
+    }
+
+    var planet=document.querySelector('input[name="planet"]:checked').value;
+    if (planet=="8"){
+        score=score+1;
+    }
+
+    var days=document.querySelector('input[name="days"]:checked').value;
+    if (days=="Revolution"){
+        score=score+1;
+    }
+
+    var fishes=document.querySelector('input[name="fishes"]:checked').value;
+    if (fishes=="Gills"){
+        score=score+1
+    }
+
+    var plants=document.querySelector('input[name="plants"]:checked').value;
+    if (plants=="Chlorophyll"){
+        score=score+1
+    }
+
+    console.log(score);
+    var show=document.getElementsByTagName("template")[0];
+    var clone=show.content.cloneNode(true);
+    document.body.appendChild(clone);
+    document.getElementById("score").innerText=score;
+}
+</script>
+</html>
